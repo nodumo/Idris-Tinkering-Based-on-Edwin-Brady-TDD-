@@ -85,10 +85,9 @@ implementation Show Athlete where
 
 ||| Abstract IO based application
 app : { [STDIO] } Eff ()
-app = do  putStrLn "namePromptMessage"
+app = do  putStrLn "Do you want to be 1) Kolin 'Super Kap' Kap or  2) Marshawn 'BeastMode' Lynch?"
           name <- getStr
-          putStrLn name
-          app
+          if name == "1" then (putStrLn (show kolin)) else app
   where
   kolin : Athlete
   kolin    = MkAthlete (Personal "Kolin") (Feet 6) (Pounds 200)
